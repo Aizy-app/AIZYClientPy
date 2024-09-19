@@ -2,18 +2,18 @@
 
 version: 2
 
+# Specify the Python environment
 python:
-  version: 3.9
+  interpreter: python3  # This uses the latest available Python 3 interpreter
   install:
     - method: pip
       path: .
-    - requirements: requirements.txt
+    - requirements: docs/requirements.txt  # Specify your documentation dependencies
 
-# Build settings
+# Sphinx configuration
 sphinx:
-  configuration: docs/source/conf.py
+  configuration: docs/source/conf.py  # Path to your Sphinx conf.py file
 
+# Build system configuration
 build:
-  os: ubuntu-22.04
-  tools:
-    python: "3.9"
+  os: "ubuntu-22.04"  # Default to Linux-based builds
