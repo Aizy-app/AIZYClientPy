@@ -1,0 +1,19 @@
+# .readthedocs.yaml
+
+version: 2
+
+python:
+  version: 3.9
+  install:
+    - method: pip
+      path: .
+    - requirements: requirements.txt
+
+# Build settings
+sphinx:
+  configuration: docs/source/conf.py
+
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.9"
