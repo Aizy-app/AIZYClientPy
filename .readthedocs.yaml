@@ -1,19 +1,13 @@
 # .readthedocs.yaml
-
+# Required
 version: 2
 
-# Specify the Python environment
-python:
-  interpreter: python3  # This uses the latest available Python 3 interpreter
-  install:
-    - method: pip
-      path: .
-    - requirements: docs/requirements.txt  # Specify your documentation dependencies
-
-# Sphinx configuration
-sphinx:
-  configuration: docs/source/conf.py  # Path to your Sphinx conf.py file
-
-# Build system configuration
+# Set the OS, Python version and other tools you might need
 build:
-  os: "ubuntu-22.04"  # Default to Linux-based builds
+  os: ubuntu-22.04
+  tools:
+    python: "3.12"
+
+# Build documentation in the "docs/" directory with Sphinx
+sphinx:
+  configuration: docs/conf.py
