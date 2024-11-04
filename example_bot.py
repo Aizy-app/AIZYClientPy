@@ -1,6 +1,6 @@
 import asyncio
-from bot.AizyBot import AizyBot
-from bot.CandleData import CandleData
+from src.AizyBot import AizyBot
+from src.CandleData import CandleData
 
 class ExampleTradingBot(AizyBot):
     def __init__(self, log_file: str = "example_log.log", uri: str = "ws://localhost:8080"):

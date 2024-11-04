@@ -1,6 +1,6 @@
 import asyncio
 from example_bot import ExampleTradingBot  # Ensure proper import
-from bot.CandleData import CandleData
+from src.CandleData import CandleData
 async def main():
     bot = ExampleTradingBot()
     await bot.bot_setup("MockExchange", "MockStream")
