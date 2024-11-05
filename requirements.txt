@@ -1,4 +1,2 @@
-matplotlib==3.9.2
-mplfinance==0.12.10b0
-pandas==2.2.2
-setuptools==75.1.0
+pytz==2024.1
+setuptools==75.3.0
