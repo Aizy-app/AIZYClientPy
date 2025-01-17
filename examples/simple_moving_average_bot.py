@@ -80,7 +80,7 @@ async def main() -> None:
 
     print(f"Starting SMA bot test (Duration: {test_duration} minutes, Interval: {test_interval} minute(s))")
     await TestEngine.test(
-        lambda *args, **kwargs: SimpleMovingAverageBot(sma_period, *args, **kwargs),
+        lambda *args, **kwargs: SimpleMovingAverageBot(sma_period=sma_period, *args, **kwargs),
         duration=test_duration,
         interval=test_interval
     )

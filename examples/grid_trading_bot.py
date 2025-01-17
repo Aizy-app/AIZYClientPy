@@ -143,7 +143,7 @@ async def main() -> None:
           f"Interval: {test_interval} minute(s))")
     await TestEngine.test(
         lambda *args, **kwargs: GridTradingBot(
-            grid_size, grid_spacing, position_size, *args, **kwargs
+            grid_size=grid_size, grid_spacing=grid_spacing, position_size=position_size, *args, **kwargs
         ),
         duration=test_duration,
         interval=test_interval

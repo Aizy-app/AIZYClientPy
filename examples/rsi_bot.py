@@ -116,7 +116,7 @@ async def main() -> None:
 
     print(f"Starting RSI bot test (Duration: {test_duration} minutes, Interval: {test_interval} minute(s))")
     await TestEngine.test(
-        lambda *args, **kwargs: RSIBot(rsi_period, oversold, overbought, *args, **kwargs),
+        lambda *args, **kwargs: RSIBot(rsi_period=rsi_period, oversold=oversold, overbought=overbought, *args, **kwargs),
         duration=test_duration,
         interval=test_interval
     )
