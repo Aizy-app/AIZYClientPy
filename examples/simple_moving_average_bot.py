@@ -6,9 +6,9 @@ This bot implements a basic trading strategy based on the Simple Moving Average 
 - Sell when price crosses below SMA
 """
 
-from src.AizyBot import AizyBot
-from src.CandleData import CandleData
-from src.TestEngine import TestEngine
+from aizypy import AizyBot
+from aizypy import CandleData
+from aizypy import TestEngine
 from typing import List, Optional
 import logging
 

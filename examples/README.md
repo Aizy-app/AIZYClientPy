@@ -97,9 +97,9 @@ To create your own trading bot:
 
 Example template:
 ```python
-from src.AizyBot import AizyBot
-from src.CandleData import CandleData
-from src.TestEngine import TestEngine
+from aizypy import AizyBot
+from aizypy import CandleData
+from aizypy import TestEngine
 
 class MyCustomBot(AizyBot):
     def __init__(self, *args, **kwargs):

@@ -6,9 +6,9 @@ This bot implements a trading strategy based on the RSI indicator:
 - Sell when RSI is above overbought level (indicating potential reversal down)
 """
 
-from src.AizyBot import AizyBot
-from src.CandleData import CandleData
-from src.TestEngine import TestEngine
+from aizypy import AizyBot
+from aizypy import CandleData
+from aizypy import TestEngine
 from typing import List, Optional
 import logging
 

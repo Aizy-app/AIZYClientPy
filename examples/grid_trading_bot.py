@@ -7,9 +7,9 @@ This bot implements a grid trading strategy:
 - Aims to profit from price oscillations within a range
 """
 
-from src.AizyBot import AizyBot
-from src.CandleData import CandleData
-from src.TestEngine import TestEngine
+from aizypy import AizyBot
+from aizypy import CandleData
+from aizypy import TestEngine
 from typing import List, Dict, Optional
 import logging
 
