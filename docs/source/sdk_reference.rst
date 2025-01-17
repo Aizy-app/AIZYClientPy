@@ -2,6 +2,8 @@
 SDK Reference
 =============
 
+This section provides detailed documentation for all components of the AIZYClientPy framework.
+
 AizyBot
 -------
 
@@ -74,6 +76,70 @@ AizyBot
 
         :return: List of pending Trade objects
 
+OrderManager
+-----------
+
+.. py:class:: OrderStatus
+
+    Enumeration of possible order statuses in the trading system.
+
+    .. py:attribute:: CREATED
+        Status when order is first created
+
+    .. py:attribute:: VALIDATED
+        Order has passed validation checks
+
+    .. py:attribute:: ACTIVE
+        Market order that is currently being traded
+
+    .. py:attribute:: PENDING
+        Limit order waiting for price target
+
+    .. py:attribute:: CANCELLED
+        Order was cancelled before execution
+
+    .. py:attribute:: FAILED
+        Order failed validation or execution
+
+    .. py:attribute:: CLOSED
+        Order has been completed and closed
+
+.. py:class:: Order
+
+    Represents a trading order with its parameters and current status.
+
+    .. py:attribute:: side
+        :type: str
+        Trading direction ('buy' or 'sell')
+
+    .. py:attribute:: amount
+        :type: float
+        Quantity to trade
+
+    .. py:attribute:: price
+        :type: float
+        Target price for the trade
+
+    .. py:attribute:: pair
+        :type: str
+        Trading pair symbol (e.g., 'BTC/USD')
+
+    .. py:attribute:: order_type
+        :type: str
+        Type of order ('market' or 'limit')
+
+    .. py:attribute:: order_id
+        :type: str
+        Unique identifier for the order
+
+    .. py:attribute:: status
+        :type: OrderStatus
+        Current status of the order
+
+    .. py:attribute:: timestamp
+        :type: datetime
+        Time when the order was created
+
 WebSocketHandler
 --------------
 
@@ -83,12 +149,10 @@ WebSocketHandler
 
     .. py:attribute:: logger
         :type: logging.Logger
-
         Logger instance for recording WebSocket events
 
     .. py:attribute:: ws
         :type: Optional[Any]
-
         WebSocket connection instance
 
     .. py:method:: __init__(logger: logging.Logger) -> None
@@ -129,19 +193,104 @@ WebSocketHandler
 
         :param order: Trade object to close
 
+CandleData
+---------
+
+.. py:class:: CandleData
+
+    Represents market candlestick data.
+
+    .. py:attribute:: timestamp
+        :type: datetime
+        Time when the candle was created
+
+    .. py:attribute:: open
+        :type: float
+        Opening price of the period
+
+    .. py:attribute:: high
+        :type: float
+        Highest price during the period
+
+    .. py:attribute:: low
+        :type: float
+        Lowest price during the period
+
+    .. py:attribute:: close
+        :type: float
+        Closing price of the period
+
+    .. py:attribute:: volume
+        :type: float
+        Trading volume during the period
+
+Trade
+-----
+
+.. py:class:: Trade
+
+    Represents a trade with its execution details.
+
+    .. py:attribute:: order_id
+        :type: str
+        Unique identifier for the trade
+
+    .. py:attribute:: symbol
+        :type: str
+        Trading pair symbol
+
+    .. py:attribute:: side
+        :type: str
+        Trading direction ('buy' or 'sell')
+
+    .. py:attribute:: quantity
+        :type: float
+        Trade quantity
+
+    .. py:attribute:: price
+        :type: float
+        Execution price
+
+    .. py:attribute:: timestamp
+        :type: datetime
+        Time of trade execution
+
+TestEngine
+---------
+
+.. py:class:: TestEngine
+
+    Engine for testing trading bots with simulated market conditions.
+
+    .. py:method:: async test(bot_class: Type[AizyBot], duration: int = 60, interval: int = 1) -> None
+
+        Run a trading bot test with simulated market data.
+
+        :param bot_class: Trading bot class to test
+        :param duration: Test duration in minutes
+        :param interval: Candle interval in minutes
+        
+    .. py:method:: generate_test_data(duration: int, interval: int) -> List[CandleData]
+
+        Generate simulated market data for testing.
+
+        :param duration: Duration to generate data for (minutes)
+        :param interval: Time between candles (minutes)
+        :return: List of CandleData objects
+
 Example Usage
 -----------
 
-Here's a basic example of using these classes together:
+Here's a basic example of creating and testing a trading bot:
 
 .. code-block:: python
 
+    from AizyClientPy import AizyBot, CandleData, TestEngine
+
     class MyBot(AizyBot):
         async def bot_action(self, candle: CandleData) -> None:
-            # Implement trading strategy
-            if candle.close > some_condition:
+            if some_condition:
                 await self.place_order("buy", 1.0, candle.close, "BTC/USD")
 
-    # Create and start the bot
-    bot = MyBot()
-    await bot.start()
+    # Test the bot
+    await TestEngine.test(MyBot, duration=120, interval=1)
