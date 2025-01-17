@@ -1,26 +1,43 @@
-# Ignore Python cache files
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Ignore log files
-*.log
-*.txt
-
-# Ignore virtual environment
+# Virtual Environment
 venv/
 env/
-.venv/
+ENV/
 
-# Ignore IDE/editor specific files
-.vscode/
+# IDE
 .idea/
+.vscode/
 *.swp
 *.swo
-*.bak
 
-# Ignore Jupyter Notebook checkpoints
-.ipynb_checkpoints/
+# Logs
+*.log
 
-# Ignore other system files
-.DS_Store
-Thumbs.db
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Documentation
+docs/_build/
