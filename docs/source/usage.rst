@@ -13,8 +13,8 @@ Here's a minimal example:
 
 .. code-block:: python
 
-    from src.AizyBot import AizyBot
-    from src.CandleData import CandleData
+    from AizyBot import AizyBot
+    from CandleData import CandleData
 
     class MyTradingBot(AizyBot):
         async def bot_action(self, candle: CandleData) -> None:
@@ -29,7 +29,7 @@ Before deploying your bot, thoroughly test it using our ``TestEngine``:
 
 .. code-block:: python
 
-    from src.TestEngine import TestEngine
+    from TestEngine import TestEngine
 
     async def main():
         # Test for 2 hours with 1-minute candles

@@ -19,9 +19,9 @@ Here's a simple example of creating a trading bot using AIZYClientPy:
     - Sell when price crosses below SMA
     """
 
-    from AizyClientPy.AizyBot import AizyBot
-    from AizyClientPy.CandleData import CandleData
-    from AizyClientPy.TestEngine import TestEngine
+    from AizyPy.AizyBot import AizyBot
+    from AizyPy.CandleData import CandleData
+    from AizyPy.TestEngine import TestEngine
     from typing import List, Optional
     import logging
 
@@ -97,14 +97,14 @@ To run your bot:
         test_duration = 120  # 2 hours
         test_interval = 1    # 1 minute candles
         sma_period = 20     # 20-period SMA
-    
+
         print(f"Starting SMA bot test (Duration: {test_duration} minutes, Interval: {test_interval} minute(s))")
         await TestEngine.test(
             lambda *args, **kwargs: SimpleMovingAverageBot(sma_period, *args, **kwargs),
             duration=test_duration,
             interval=test_interval
         )
-    
+
     if __name__ == "__main__":
         import asyncio
         asyncio.run(main()) 
