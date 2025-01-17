@@ -20,8 +20,8 @@ class OrderStatus(Enum):
     """
     CREATED = "Created"
     VALIDATED = "Validated"
-    ACTIVE = "Active"      # For market orders that are actively traded
-    PENDING = "Pending"    # For limit orders waiting for price confirmation
+    ACTIVE = "Active"
+    PENDING = "Pending"
     CANCELLED = "Cancelled"
     FAILED = "Failed"
     CLOSED = "Closed"
