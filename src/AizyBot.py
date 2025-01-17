@@ -6,13 +6,7 @@ from .Trade import Trade
 from .WebSocketHandler import WebSocketHandler
 
 class AizyBot:
-    """Base trading bot class implementing core trading functionality.
-    
-    Attributes:
-        logger: Logger instance for recording events
-        websocket_handler: Handler for WebSocket communications
-        order_manager: Manager for handling trading orders
-    """
+    """Base trading bot class implementing core trading functionality."""
     
     def __init__(self, log_file: str = "log.txt", websocket: Optional[Any] = None) -> None:
         self.logger: logging.Logger = self._setup_logger(log_file)

@@ -57,15 +57,11 @@ Once your bot is tested and ready:
 
 1. Visit the `Aizy Platform <https://aizy.app>`_
 2. Log in to your account
-3. Navigate to "My Bots" section
-4. Click "Upload New Bot"
-5. Follow the upload instructions
-6. Set your rental price and terms
+3. Click "Upload New Bot"
+4. Follow the upload instructions
+5. Set your rental price and terms
 
 Your bot will be available for other traders to rent and use on their accounts. You'll earn passive income from rental fees while helping other traders succeed.
-
-.. note::
-    Make sure your bot follows our `best practices <https://docs.aizy.app/best-practices>`_ and `guidelines <https://docs.aizy.app/guidelines>`_ before uploading.
 
 Monitoring Your Bot
 -----------------
@@ -74,7 +70,5 @@ After deployment, you can:
 
 * Track your bot's performance
 * Monitor rental statistics
-* Receive notifications about trades
-* Update your bot as needed
 
 Visit your `dashboard <https://aizy.app/dashboard>`_ to manage your bots and view earnings.
