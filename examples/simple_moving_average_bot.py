@@ -13,7 +13,7 @@ from typing import List, Optional
 import logging
 
 class SimpleMovingAverageBot(AizyBot):
-    def __init__(self, sma_period: int = 20, *args, **kwargs) -> None:
+    def __init__(self, *args, **kwargs) -> None:
         """Initialize the SMA trading bot.
         
         Args:
@@ -22,10 +22,10 @@ class SimpleMovingAverageBot(AizyBot):
             **kwargs: Additional keyword arguments for AizyBot
         """
         super().__init__(*args, **kwargs)
-        self.sma_period: int = sma_period
+        self.sma_period: int = 20
         self.prices: List[float] = []
         self.last_position: Optional[str] = None
-        self.logger.info(f"Initialized SMA bot with period {sma_period}")
+        self.logger.info(f"Initialized SMA bot with period {self.sma_period}")
 
     def calculate_sma(self) -> float:
         """Calculate the Simple Moving Average.
