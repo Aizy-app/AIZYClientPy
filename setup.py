@@ -4,15 +4,23 @@ import re
 
 def get_version():
     init_file = os.path.join("aizypy", "__init__.py")
-    with open(init_file, "r", encoding="utf-8") as f:
-        content = f.read()
-    version_match = re.search(r'^__version__ = ["\']([^"\']*)["\']', content, re.M)
-    if version_match:
-        return version_match.group(1)
-    raise RuntimeError("Cannot find version string")
+    try:
+        with open(init_file, "r", encoding="utf-8") as f:
+            content = f.read()
+        version_match = re.search(r'^__version__ = ["\']([^"\']*)["\']', content, re.M)
+        if version_match:
+            return version_match.group(1)
+        raise RuntimeError("Cannot find version string")
+    except FileNotFoundError:
+        return "0.1.0"  # Default version if file not found
 
-with open("PYPI.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+# Get the absolute path to PYPI.md
+here = os.path.abspath(os.path.dirname(__file__))
+try:
+    with open(os.path.join(here, "PYPI.md"), "r", encoding="utf-8") as fh:
+        long_description = fh.read()
+except FileNotFoundError:
+    long_description = "A Python framework for creating and testing trading bots on the Aizy platform."
 
 setup(
     name="aizypy",
@@ -22,7 +30,7 @@ setup(
     description="A Python framework for creating and testing trading bots",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/aizy-app/AIZYClientPy",
+    url="https://github.com/AizyDev/AIZYClientPy",
     packages=["aizypy"],
     classifiers=[
         "Development Status :: 4 - Beta",
